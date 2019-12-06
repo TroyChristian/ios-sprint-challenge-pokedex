@@ -18,7 +18,7 @@ struct Pokemon:Codable {
 }
 
 struct Ability:Codable {
-    var ability: Species
+    var ability:Species 
     
 }
 
