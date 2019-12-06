@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 enum HTTPMethod: String {
     case get = "GET"
     
@@ -22,6 +23,7 @@ enum NetworkError: Error {
 
 class APIController {
        private let baseUrl = URL(string: "https://pokeapi.co/api/v2/")!
+    var pokemonList:[Pokemon] = []
     
   func getPokemon(for pokemonName:String, completion: @escaping (Result<Pokemon, NetworkError>) -> Void) {
        
@@ -29,7 +31,7 @@ class APIController {
        
        var request = URLRequest(url:pokemonUrl)
        request.httpMethod = HTTPMethod.get.rawValue
-       //request.setValue("", forHTTPHeaderField: "Authorization")
+       request.setValue("application/json", forHTTPHeaderField: "Content-Type")
        
        URLSession.shared.dataTask(with: request) { data, response, error in
            if let response = response as? HTTPURLResponse,
@@ -64,4 +66,30 @@ class APIController {
        
        
 }
+    
+    func fetchImage(at urlString:String, completion: @escaping (Result<UIImage, NetworkError>) -> Void ) {
+         let imageURL = URL(string: urlString)!
+         
+         var request = URLRequest(url:imageURL)
+         request.httpMethod = HTTPMethod.get.rawValue
+         
+         URLSession.shared.dataTask(with: request) { (data, _, error) in
+             if let _ = error {
+                 completion(.failure(.otherError))
+                 return
+             }
+             
+             guard let data = data else {
+                 completion(.failure(.badData))
+                 return
+             }
+             let image = UIImage(data: data)!
+             completion(.success(image))
+         }.resume()
+         
+     }
+    
+    func save(pokemon:Pokemon){
+        pokemonList.append(pokemon)
+    }
 }
