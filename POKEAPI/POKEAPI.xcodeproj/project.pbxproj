@@ -15,6 +15,7 @@
 		FB8C953C239AC8A5002EECBC /* PokemonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C953B239AC8A5002EECBC /* PokemonTableViewController.swift */; };
 		FB8C953E239AC8EA002EECBC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C953D239AC8EA002EECBC /* SearchViewController.swift */; };
 		FB8C9540239AC91C002EECBC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C953F239AC91C002EECBC /* DetailViewController.swift */; };
+		FB8C9542239ACC53002EECBC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C9541239ACC53002EECBC /* Pokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FB8C953B239AC8A5002EECBC /* PokemonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewController.swift; sourceTree = "<group>"; };
 		FB8C953D239AC8EA002EECBC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FB8C953F239AC91C002EECBC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FB8C9541239ACC53002EECBC /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				FB8C9527239AC50C002EECBC /* AppDelegate.swift */,
 				FB8C9529239AC50C002EECBC /* SceneDelegate.swift */,
 				FB8C952D239AC50C002EECBC /* Main.storyboard */,
+				FB8C9541239ACC53002EECBC /* Pokemon.swift */,
 				FB8C953F239AC91C002EECBC /* DetailViewController.swift */,
 				FB8C953D239AC8EA002EECBC /* SearchViewController.swift */,
 				FB8C953B239AC8A5002EECBC /* PokemonTableViewController.swift */,
@@ -149,6 +152,7 @@
 				FB8C9540239AC91C002EECBC /* DetailViewController.swift in Sources */,
 				FB8C953E239AC8EA002EECBC /* SearchViewController.swift in Sources */,
 				FB8C952A239AC50C002EECBC /* SceneDelegate.swift in Sources */,
+				FB8C9542239ACC53002EECBC /* Pokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
