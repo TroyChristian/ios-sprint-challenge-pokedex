@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  PokeSprint
+//  POKEAPI
 //
 //  Created by Lambda_School_Loaner_219 on 12/6/19.
 //  Copyright © 2019 Lambda_School_Loaner_219. All rights reserved.
