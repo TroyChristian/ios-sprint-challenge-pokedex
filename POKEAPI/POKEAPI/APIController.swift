@@ -104,7 +104,7 @@ class APIController {
      }
     
     func save(pokemon:Pokemon){
-        pokemonList.append(pokemon)
+        self.pokemonList.append(pokemon)
         saveToPersistentStore() 
     }
     

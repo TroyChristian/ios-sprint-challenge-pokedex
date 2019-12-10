@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
    
     @IBOutlet weak var abilitiesLabel: UILabel!
     
-    var apiController:APIController?
+    var apiController:APIController!
     var pokemon:Pokemon? 
     
     override func viewDidLoad() {
@@ -42,7 +42,9 @@ class DetailViewController: UIViewController {
     @IBAction func onSavePressed(_ sender: Any) {
         guard let pokemon = pokemon else {return}
         
-        apiController?.save(pokemon: pokemon)
+        //apiController?.pokemonList.append(pokemon)
+        apiController?.save(pokemon:pokemon)
+        print("Pokemon saved! You saved: \(pokemon.name) there is \(apiController?.pokemonList.count) pokemon saved!")
         
         self.navigationController?.popViewController(animated: true)
     }
@@ -102,6 +104,7 @@ func hideViews() {
         self.abilitiesLabel.text = abilities
         
         self.idLabel.text = "\(pokemon.id)"
+        print(self.apiController.pokemonList.count)
         
         
     })
