@@ -25,6 +25,10 @@ class APIController {
        private let baseUrl = URL(string: "https://pokeapi.co/api/v2/")!
     var pokemonList:[Pokemon] = []
     
+    init() {
+        loadFromPersistentStore()
+    }
+    
   func getPokemon(for pokemonName:String, completion: @escaping (Result<Pokemon, NetworkError>) -> Void) {
        
        let pokemonUrl = baseUrl.appendingPathComponent("pokemon/\(pokemonName.lowercased())/")
@@ -116,11 +120,11 @@ class APIController {
     }
     
   private var savedPokemonURL: URL? {
-        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+   guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         
         let fileName = "pokemonList.plist"
         
-        return documentDirectory?.appendingPathComponent(fileName)
+    return documentDirectory.appendingPathComponent(fileName)
     }
     
     private func saveToPersistentStore() {
@@ -139,9 +143,9 @@ class APIController {
     }
     
     private func loadFromPersistentStore() {
-        
+        let fileManager = FileManager.default
         do {
-            guard let fileURL = savedPokemonURL else { return }
+            guard let fileURL = savedPokemonURL, fileManager.fileExists(atPath: fileURL.path) else { return }
             
             let notebooksData = try Data(contentsOf: fileURL)
             
