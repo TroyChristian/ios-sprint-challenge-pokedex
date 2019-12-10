@@ -76,8 +76,8 @@ func hideViews() {
     
     func hideSearchAndSave(){
         if pokemon != nil {
-            saveButton.isHidden = false
-            searchBar.isHidden = false 
+            saveButton.isHidden = true
+            searchBar.isHidden = true
         }
     }
     
