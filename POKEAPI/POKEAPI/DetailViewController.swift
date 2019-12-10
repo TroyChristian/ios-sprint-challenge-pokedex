@@ -58,9 +58,11 @@ func hideViews() {
         idLabel.isHidden = false
         typeLabel.isHidden = false
         abilitiesLabel.isHidden = false
+        nameLabel.isHidden = false
     }
         
     if pokemon == nil {
+        nameLabel.isHidden = true
         imageView.isHidden = true
         idLabel.isHidden = true
         typeLabel.isHidden = true
@@ -85,6 +87,21 @@ func hideViews() {
             self.imageView.image = pokemonImage 
         }
         self.nameLabel.text = pokemon.name.capitalized
+        
+        var typesString = ""
+        for type in pokemon.types {
+            typesString += type.type.name + " , "
+        }
+        self.typeLabel.text =  "Type(s): \(typesString)"
+        
+        var abilities = ""
+        for ability in pokemon.abilities {
+            abilities += ability.ability.name + " , "
+            
+        }
+        self.abilitiesLabel.text = abilities
+        
+        self.idLabel.text = "\(pokemon.id)"
         
         
     })
