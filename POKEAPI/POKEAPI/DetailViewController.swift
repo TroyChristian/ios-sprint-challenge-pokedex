@@ -9,7 +9,8 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var imageView: UIImageView!
@@ -83,6 +84,9 @@ func hideViews() {
         if let pokemonImage = try? result.get() {
             self.imageView.image = pokemonImage 
         }
+        self.nameLabel.text = pokemon.name.capitalized
+        
+        
     })
         
     

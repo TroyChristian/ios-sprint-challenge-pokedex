@@ -93,14 +93,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxY-UV-v4k">
-                                <rect key="frame" x="157" y="685" width="101" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxY-UV-v4k">
+                                <rect key="frame" x="157" y="685" width="101" height="30"/>
                                 <state key="normal" title="Save Pokemon"/>
                                 <connections>
                                     <action selector="onSavePressed:" destination="3A8-8m-MsZ" eventType="touchUpInside" id="7E4-zj-DhL"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUY-5f-8CH">
+                                <rect key="frame" x="186" y="375" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -111,22 +116,30 @@
                             <constraint firstItem="Lwz-4Q-H7E" firstAttribute="top" secondItem="9iX-tN-NQr" secondAttribute="bottom" constant="71" id="8L4-nv-DWf"/>
                             <constraint firstItem="uSr-uR-bWM" firstAttribute="trailing" secondItem="Lwz-4Q-H7E" secondAttribute="trailing" constant="326" id="9D3-F1-enX"/>
                             <constraint firstItem="g6a-md-FAy" firstAttribute="top" secondItem="b0m-m3-nTJ" secondAttribute="bottom" constant="230.5" id="9Ma-4K-N7d"/>
+                            <constraint firstItem="uSr-uR-bWM" firstAttribute="bottom" secondItem="kxY-UV-v4k" secondAttribute="bottom" constant="147" id="AuC-qv-6bF"/>
                             <constraint firstItem="rce-wR-fc4" firstAttribute="top" secondItem="b0m-m3-nTJ" secondAttribute="bottom" constant="27" id="D75-0f-oVa"/>
+                            <constraint firstItem="kxY-UV-v4k" firstAttribute="leading" secondItem="uSr-uR-bWM" secondAttribute="leading" constant="157" id="EfY-po-aB4"/>
                             <constraint firstItem="b0m-m3-nTJ" firstAttribute="trailing" secondItem="uSr-uR-bWM" secondAttribute="trailing" id="Haq-vM-XDz"/>
                             <constraint firstItem="rce-wR-fc4" firstAttribute="top" secondItem="b0m-m3-nTJ" secondAttribute="bottom" constant="27" id="JQP-jL-KbI"/>
+                            <constraint firstItem="kxY-UV-v4k" firstAttribute="top" secondItem="PUY-5f-8CH" secondAttribute="bottom" constant="289" id="L3q-MN-JRa"/>
                             <constraint firstItem="Lwz-4Q-H7E" firstAttribute="leading" secondItem="uSr-uR-bWM" secondAttribute="leading" constant="19" id="Oov-ct-OFV"/>
+                            <constraint firstItem="kxY-UV-v4k" firstAttribute="top" secondItem="PUY-5f-8CH" secondAttribute="bottom" constant="289" id="TqQ-AP-bKB"/>
                             <constraint firstItem="Lwz-4Q-H7E" firstAttribute="top" secondItem="9iX-tN-NQr" secondAttribute="bottom" constant="71" id="Twa-Tn-B6I"/>
                             <constraint firstItem="b0m-m3-nTJ" firstAttribute="top" secondItem="uSr-uR-bWM" secondAttribute="top" id="UkT-Q5-GbE"/>
                             <constraint firstItem="9iX-tN-NQr" firstAttribute="leading" secondItem="uSr-uR-bWM" secondAttribute="leading" constant="19" id="Wqx-Mc-awe"/>
                             <constraint firstItem="uSr-uR-bWM" firstAttribute="bottom" secondItem="Lwz-4Q-H7E" secondAttribute="bottom" constant="284" id="Ycg-y8-OCU"/>
                             <constraint firstItem="9iX-tN-NQr" firstAttribute="top" secondItem="Rps-JE-j3r" secondAttribute="bottom" constant="37" id="Yhz-Ds-LL5"/>
+                            <constraint firstItem="PUY-5f-8CH" firstAttribute="top" secondItem="rce-wR-fc4" secondAttribute="bottom" constant="88" id="aoP-Hb-V5p"/>
                             <constraint firstItem="uSr-uR-bWM" firstAttribute="bottom" secondItem="rce-wR-fc4" secondAttribute="bottom" constant="575" id="bQn-Nq-ukq"/>
                             <constraint firstItem="rce-wR-fc4" firstAttribute="leading" secondItem="uSr-uR-bWM" secondAttribute="leading" constant="87" id="bYb-rF-r9x"/>
                             <constraint firstItem="b0m-m3-nTJ" firstAttribute="leading" secondItem="uSr-uR-bWM" secondAttribute="leading" id="cuf-kQ-QLR"/>
                             <constraint firstItem="Rps-JE-j3r" firstAttribute="top" secondItem="g6a-md-FAy" secondAttribute="bottom" constant="57" id="eoA-RN-Bhb"/>
+                            <constraint firstItem="uSr-uR-bWM" firstAttribute="trailing" secondItem="PUY-5f-8CH" secondAttribute="trailing" constant="132" id="fdh-PW-QTt"/>
+                            <constraint firstItem="uSr-uR-bWM" firstAttribute="trailing" secondItem="kxY-UV-v4k" secondAttribute="trailing" constant="156" id="hrd-yL-3L3"/>
                             <constraint firstItem="9iX-tN-NQr" firstAttribute="top" secondItem="g6a-md-FAy" secondAttribute="bottom" constant="115" id="phn-7n-aDI"/>
                             <constraint firstItem="uSr-uR-bWM" firstAttribute="trailing" secondItem="Rps-JE-j3r" secondAttribute="trailing" constant="378" id="zLT-tQ-4LS"/>
                             <constraint firstItem="uSr-uR-bWM" firstAttribute="trailing" secondItem="g6a-md-FAy" secondAttribute="trailing" constant="326" id="zNb-3I-Ry8"/>
+                            <constraint firstItem="PUY-5f-8CH" firstAttribute="leading" secondItem="uSr-uR-bWM" secondAttribute="leading" constant="186" id="zNe-3b-ocW"/>
                             <constraint firstItem="9iX-tN-NQr" firstAttribute="top" secondItem="g6a-md-FAy" secondAttribute="bottom" constant="115" id="zy4-ni-ejM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uSr-uR-bWM"/>
@@ -136,6 +149,7 @@
                         <outlet property="abilitiesLabel" destination="Lwz-4Q-H7E" id="Rrz-zv-Aoy"/>
                         <outlet property="idLabel" destination="g6a-md-FAy" id="l4s-hI-9L3"/>
                         <outlet property="imageView" destination="rce-wR-fc4" id="bUs-Cw-eCQ"/>
+                        <outlet property="nameLabel" destination="PUY-5f-8CH" id="OGr-ia-ayi"/>
                         <outlet property="saveButton" destination="kxY-UV-v4k" id="4Rh-6e-fDm"/>
                         <outlet property="searchBar" destination="b0m-m3-nTJ" id="tvW-TV-23E"/>
                         <outlet property="typeLabel" destination="9iX-tN-NQr" id="ecv-RL-yUT"/>
