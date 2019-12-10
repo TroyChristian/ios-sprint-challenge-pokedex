@@ -15,7 +15,7 @@ enum HTTPMethod: String {
 
 enum NetworkError: Error {
     case noAuth
-    case badAuth
+    case badResponse
     case otherError
     case badData
     case noDecode
@@ -27,7 +27,7 @@ class APIController {
     
   func getPokemon(for pokemonName:String, completion: @escaping (Result<Pokemon, NetworkError>) -> Void) {
        
-       let pokemonUrl = baseUrl.appendingPathComponent("pokemon/\(pokemonName)/")
+       let pokemonUrl = baseUrl.appendingPathComponent("pokemon/\(pokemonName.lowercased())/")
        
        var request = URLRequest(url:pokemonUrl)
        request.httpMethod = HTTPMethod.get.rawValue
@@ -35,8 +35,8 @@ class APIController {
        
        URLSession.shared.dataTask(with: request) { data, response, error in
            if let response = response as? HTTPURLResponse,
-               response.statusCode == 401 {
-               completion(.failure(.badAuth))
+               response.statusCode != 200 {
+               completion(.failure(.badResponse))
                return
            }
            
@@ -47,6 +47,7 @@ class APIController {
            }
            
            guard let data = data else {
+            print("Data not recieved")
                completion(.failure(.badData))
                return
            }
@@ -57,7 +58,7 @@ class APIController {
                let pokemon = try decoder.decode(Pokemon.self, from: data)
             completion(.success(pokemon))
            } catch {
-               print("Error decoding animal object: \(error)")
+               print("Error decoding pokemon from data into pokemon object: \(error)")
                completion(.failure(.noDecode))
                return
            }
@@ -67,29 +68,92 @@ class APIController {
        
 }
     
-    func fetchImage(at urlString:String, completion: @escaping (Result<UIImage, NetworkError>) -> Void ) {
-         let imageURL = URL(string: urlString)!
-         
-         var request = URLRequest(url:imageURL)
-         request.httpMethod = HTTPMethod.get.rawValue
-         
-         URLSession.shared.dataTask(with: request) { (data, _, error) in
-             if let _ = error {
-                 completion(.failure(.otherError))
-                 return
-             }
-             
-             guard let data = data else {
-                 completion(.failure(.badData))
-                 return
-             }
-             let image = UIImage(data: data)!
-             completion(.success(image))
-         }.resume()
+    func fetchImage(at urlString: String, completion: @escaping (Result<UIImage, NetworkError>) -> Void ) {
+        guard let pokemonFrontSpriteURL = URL(string: urlString) else {
+            completion(.failure(.badData))
+            return
+        }
+        
+        var request = URLRequest(url:pokemonFrontSpriteURL)
+        request.httpMethod = HTTPMethod.get.rawValue
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+             print("There was an error querying the frontDefault image url for the pokemon of type \(error)")
+                completion(.failure(.otherError))
+            }
+            
+         if let response = response as? HTTPURLResponse,
+             response.statusCode != 200 {
+             completion(.failure(.badResponse))
+             return
+            
+        }
+            guard let data = data  else {
+                completion(.failure(.badData))
+                return
+            }
+            
+            guard let frontSpritePicture = UIImage(data:data) else { return }
+            DispatchQueue.main.async {
+                completion(.success(frontSpritePicture))
+            }
+        }.resume()
+        
          
      }
     
     func save(pokemon:Pokemon){
         pokemonList.append(pokemon)
+        saveToPersistentStore() 
     }
+    
+    func delete (_ pokemon:Pokemon) {
+        guard let location = pokemonList.firstIndex(of:pokemon) else {return}
+        pokemonList.remove(at:location)
+        saveToPersistentStore()
+        
+    }
+    
+  private var savedPokemonURL: URL? {
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        
+        let fileName = "pokemonList.plist"
+        
+        return documentDirectory?.appendingPathComponent(fileName)
+    }
+    
+    private func saveToPersistentStore() {
+        
+        let plistEncoder = PropertyListEncoder()
+        
+        do {
+            let notebooksData = try plistEncoder.encode(pokemonList)
+            
+            guard let fileURL = savedPokemonURL else { return }
+            
+            try notebooksData.write(to: fileURL)
+        } catch {
+            NSLog("Error encoding memories to property list: \(error)")
+        }
+    }
+    
+    private func loadFromPersistentStore() {
+        
+        do {
+            guard let fileURL = savedPokemonURL else { return }
+            
+            let notebooksData = try Data(contentsOf: fileURL)
+            
+            let plistDecoder = PropertyListDecoder()
+            
+            self.pokemonList = try plistDecoder.decode([Pokemon].self, from: notebooksData)
+        } catch {
+            NSLog("Error decoding memories from property list: \(error)")
+        }
+    }
+    
+
 }
+
+

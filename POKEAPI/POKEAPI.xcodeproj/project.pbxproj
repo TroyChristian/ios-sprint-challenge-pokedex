@@ -13,7 +13,6 @@
 		FB8C9531239AC50E002EECBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB8C9530239AC50E002EECBC /* Assets.xcassets */; };
 		FB8C9534239AC50E002EECBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8C9532239AC50E002EECBC /* LaunchScreen.storyboard */; };
 		FB8C953C239AC8A5002EECBC /* PokemonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C953B239AC8A5002EECBC /* PokemonTableViewController.swift */; };
-		FB8C953E239AC8EA002EECBC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C953D239AC8EA002EECBC /* SearchViewController.swift */; };
 		FB8C9540239AC91C002EECBC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C953F239AC91C002EECBC /* DetailViewController.swift */; };
 		FB8C9542239ACC53002EECBC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C9541239ACC53002EECBC /* Pokemon.swift */; };
 		FB8C9544239AD48B002EECBC /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C9543239AD48B002EECBC /* APIController.swift */; };
@@ -28,7 +27,6 @@
 		FB8C9533239AC50E002EECBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB8C9535239AC50E002EECBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB8C953B239AC8A5002EECBC /* PokemonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewController.swift; sourceTree = "<group>"; };
-		FB8C953D239AC8EA002EECBC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FB8C953F239AC91C002EECBC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FB8C9541239ACC53002EECBC /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		FB8C9543239AD48B002EECBC /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 				FB8C952D239AC50C002EECBC /* Main.storyboard */,
 				FB8C9541239ACC53002EECBC /* Pokemon.swift */,
 				FB8C953F239AC91C002EECBC /* DetailViewController.swift */,
-				FB8C953D239AC8EA002EECBC /* SearchViewController.swift */,
 				FB8C953B239AC8A5002EECBC /* PokemonTableViewController.swift */,
 				FB8C9543239AD48B002EECBC /* APIController.swift */,
 				FB8C9530239AC50E002EECBC /* Assets.xcassets */,
@@ -154,7 +151,6 @@
 				FB8C953C239AC8A5002EECBC /* PokemonTableViewController.swift in Sources */,
 				FB8C9528239AC50C002EECBC /* AppDelegate.swift in Sources */,
 				FB8C9540239AC91C002EECBC /* DetailViewController.swift in Sources */,
-				FB8C953E239AC8EA002EECBC /* SearchViewController.swift in Sources */,
 				FB8C952A239AC50C002EECBC /* SceneDelegate.swift in Sources */,
 				FB8C9542239ACC53002EECBC /* Pokemon.swift in Sources */,
 			);
