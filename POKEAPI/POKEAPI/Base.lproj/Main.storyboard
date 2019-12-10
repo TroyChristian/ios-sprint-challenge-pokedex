@@ -32,6 +32,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="3A8-8m-MsZ" kind="show" identifier="showDetailSegue" id="X98-Qu-Izd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -81,7 +84,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="b0m-m3-nTJ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="32.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="33"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-JE-j3r">
@@ -90,6 +93,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxY-UV-v4k">
+                                <rect key="frame" x="157" y="685" width="101" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save Pokemon"/>
+                                <connections>
+                                    <action selector="onSavePressed:" destination="3A8-8m-MsZ" eventType="touchUpInside" id="7E4-zj-DhL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -125,12 +136,14 @@
                         <outlet property="abilitiesLabel" destination="Lwz-4Q-H7E" id="Rrz-zv-Aoy"/>
                         <outlet property="idLabel" destination="g6a-md-FAy" id="l4s-hI-9L3"/>
                         <outlet property="imageView" destination="rce-wR-fc4" id="bUs-Cw-eCQ"/>
+                        <outlet property="saveButton" destination="kxY-UV-v4k" id="4Rh-6e-fDm"/>
+                        <outlet property="searchBar" destination="b0m-m3-nTJ" id="tvW-TV-23E"/>
                         <outlet property="typeLabel" destination="9iX-tN-NQr" id="ecv-RL-yUT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZ4-eU-7e5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1651" y="206"/>
+            <point key="canvasLocation" x="1650.7246376811595" y="205.58035714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="POL-DR-TNH">
@@ -151,4 +164,7 @@
             <point key="canvasLocation" x="-1.4492753623188408" y="205.58035714285714"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="X98-Qu-Izd"/>
+    </inferredMetricsTieBreakers>
 </document>

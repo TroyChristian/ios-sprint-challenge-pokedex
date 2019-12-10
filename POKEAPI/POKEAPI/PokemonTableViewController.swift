@@ -33,6 +33,7 @@ class PokemonTableViewController: UITableViewController {
         let currentPokemon = apiController.pokemonList[indexPath.row]
         
         cell.textLabel?.text = currentPokemon.name
+        cell.detailTextLabel?.text = "id: \(currentPokemon.id)"
         
         
 
@@ -41,7 +42,12 @@ class PokemonTableViewController: UITableViewController {
     
 
 //delete functionality
-            
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            apiController.delete(apiController.pokemonList[indexPath.row])
+            tableView.deleteRows(at:[indexPath], with: .automatic)
+        }
+    }
             
 
            
@@ -53,7 +59,19 @@ class PokemonTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-       
+        if segue.identifier == "showDetailSegue" {
+            if let detailVC = segue.destination as? DetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow{
+                detailVC.apiController = apiController
+                detailVC.pokemon = apiController.pokemonList[indexPath.row]
+            }
+        }
+        
+        if segue.identifier == "searchSegue" {
+            if let searchVC = segue.destination as? DetailViewController {
+                searchVC.apiController = apiController 
+            }
+        }
             }
         
        
